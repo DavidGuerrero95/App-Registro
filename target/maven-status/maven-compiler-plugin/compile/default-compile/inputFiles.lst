@@ -1,0 +1,15 @@
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\services\RegistroService.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\controllers\RegistroController.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\models\Usuario.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\models\UsuarioPw.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\models\Registro.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\models\Roles.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\clients\AuthFeigClient.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\repository\UsuarioPwRepository.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\config\SwaggerConfiguration.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\repository\RegistroRepository.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\AppRegistroApplication.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\repository\UsuarioRepository.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\clients\NotificacionesFeignClient.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\clients\UsersFeignClient.java
+S:\Users\Documentos\SmartCity\Aplicacion\workspace\App-Registro\src\main\java\com\app\registro\services\IRegistroService.java

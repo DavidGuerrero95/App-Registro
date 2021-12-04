@@ -1,0 +1,15 @@
+com\app\registro\models\UsuarioPw.class
+com\app\registro\models\Registro.class
+com\app\registro\AppRegistroApplication.class
+com\app\registro\repository\RegistroRepository.class
+com\app\registro\clients\AuthFeigClient.class
+com\app\registro\services\IRegistroService.class
+com\app\registro\repository\UsuarioRepository.class
+com\app\registro\controllers\RegistroController.class
+com\app\registro\repository\UsuarioPwRepository.class
+com\app\registro\models\Usuario.class
+com\app\registro\config\SwaggerConfiguration.class
+com\app\registro\models\Roles.class
+com\app\registro\services\RegistroService.class
+com\app\registro\clients\NotificacionesFeignClient.class
+com\app\registro\clients\UsersFeignClient.class
