@@ -8,7 +8,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "registro")
@@ -19,7 +18,7 @@ public class Registro {
 
 	@NotBlank(message = "Username cannot be null")
 	@Size(max = 20)
-	@Indexed(unique = true)
+	// @Indexed(unique = true)
 	@Pattern(regexp = "[A-Za-z0-9_.-]+", message = "Solo se permite:'_' o '.' o '-'")
 	private String username;
 
@@ -31,14 +30,14 @@ public class Registro {
 	@NotBlank(message = "Cell phone cannot be null")
 	@Pattern(regexp = "[0-9]+", message = "Solo numeros")
 	@Size(max = 50)
-	@Indexed(unique = true)
+	// @Indexed(unique = true)
 	private String cellPhone;
 
 	@NotBlank(message = "Email cannot be null")
 	@Size(max = 50)
 	@Pattern(regexp = "[^ ]*+", message = "Caracter: ' ' (Espacio en blanco) invalido")
 	@Email(message = "Email should be valid")
-	@Indexed(unique = true)
+	// @Indexed(unique = true)
 	private String email;
 
 	private String codigo;

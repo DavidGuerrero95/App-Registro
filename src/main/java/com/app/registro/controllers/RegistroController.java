@@ -66,19 +66,29 @@ public class RegistroController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public ResponseEntity<?> crearRegistroCodigo(@RequestBody @Validated Registro registro) {
 		Long minutos = new Date().getTime();
+		Registro rg = new Registro();
 		if (!(Boolean) cbFactory.create("registro")
 				.run(() -> uClient.preguntarUsuarioExiste(registro.getUsername(), registro.getEmail(),
 						registro.getCellPhone()),
 						e -> preguntarUsuarioExiste2(registro.getUsername(), registro.getEmail(),
 								registro.getCellPhone(), e))) {
-			registro.setCodigo(String.valueOf((int) (100000 * Math.random() + 99999)));
-			registro.setPassword(rService.codificar(registro.getPassword()));
-			registro.setMinutos(minutos);
-			if (registro.getRoles() == null) {
-				registro.setRoles(new ArrayList<>(Arrays.asList("user")));
+			
+			if(rRepository.existsByUsername(registro.getUsername())) rg = rRepository.findByUsername(registro.getUsername());
+			else if(rRepository.existsByEmail(registro.getEmail())) rg = rRepository.findByEmail(registro.getEmail());
+			else if(rRepository.existsByCellPhone(registro.getCellPhone())) rg = rRepository.findByCellPhone(registro.getCellPhone());
+			else {
+				rg.setEmail(registro.getEmail());
+				rg.setUsername(registro.getUsername());
+				rg.setCellPhone(registro.getCellPhone());
 			}
-			rRepository.save(registro);
-			nClient.enviarMensajeSuscripciones(registro.getEmail(), registro.getCodigo());
+			rg.setCodigo(String.valueOf((int) (100000 * Math.random() + 99999)));
+			rg.setPassword(rService.codificar(registro.getPassword()));
+			rg.setMinutos(minutos);
+			if (rg.getRoles() == null) {
+				rg.setRoles(new ArrayList<>(Arrays.asList("user")));
+			}
+			rRepository.save(rg);
+			nClient.enviarMensajeSuscripciones(rg.getEmail(), rg.getCodigo());
 			return ResponseEntity.ok("Codigo de verificación enviado a su correo");
 		}
 		return ResponseEntity.badRequest().body("Usuario Ya existe");
@@ -218,6 +228,17 @@ public class RegistroController {
 			return "sin errores";
 		}
 		return "Error";
+	}
+	
+	@GetMapping("/registro/ver/")
+	public List<Registro> verRegistro() {
+		return rRepository.findAll();
+	}
+	
+	@DeleteMapping("/registro/borrar/")
+	@ResponseStatus(code = HttpStatus.OK)
+	public void borrarLista() {
+		rRepository.deleteAll();
 	}
 
 	private List<Usuario> errorArreglarUser(Throwable e) {
