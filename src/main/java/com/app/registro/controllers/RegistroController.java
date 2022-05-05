@@ -73,9 +73,21 @@ public class RegistroController {
 						e -> preguntarUsuarioExiste2(registro.getUsername(), registro.getEmail(),
 								registro.getCellPhone(), e))) {
 			
-			if(rRepository.existsByUsername(registro.getUsername())) rg = rRepository.findByUsername(registro.getUsername());
-			else if(rRepository.existsByEmail(registro.getEmail())) rg = rRepository.findByEmail(registro.getEmail());
-			else if(rRepository.existsByCellPhone(registro.getCellPhone())) rg = rRepository.findByCellPhone(registro.getCellPhone());
+			if(rRepository.existsByUsername(registro.getUsername())) {
+				rg = rRepository.findByUsername(registro.getUsername());
+				rg.setEmail(registro.getEmail());
+				rg.setCellPhone(registro.getCellPhone());
+			}
+			else if(rRepository.existsByEmail(registro.getEmail())) {
+				rg = rRepository.findByEmail(registro.getEmail());
+				rg.setUsername(registro.getUsername());
+				rg.setCellPhone(registro.getCellPhone());
+			}
+			else if(rRepository.existsByCellPhone(registro.getCellPhone())) {
+				rg = rRepository.findByCellPhone(registro.getCellPhone());
+				rg.setEmail(registro.getEmail());
+				rg.setUsername(registro.getUsername());
+			}
 			else {
 				rg.setEmail(registro.getEmail());
 				rg.setUsername(registro.getUsername());
