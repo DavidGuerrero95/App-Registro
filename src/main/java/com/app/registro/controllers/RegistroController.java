@@ -257,5 +257,16 @@ public class RegistroController {
 		logger.info("Error: " + e.getMessage());
 		return null;
 	}
+	
+	@DeleteMapping("/registro/eliminar/all/usuarios/")
+	@ResponseStatus(code = HttpStatus.ACCEPTED)
+	public Boolean eliminarAllUsuario() throws IOException {
+		try {
+			rRepository.deleteAll();
+			return true;
+		} catch (Exception e) {
+			throw new IOException("Error: " + e.getMessage());
+		}
+	}
 
 }
