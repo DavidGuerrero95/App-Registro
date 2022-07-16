@@ -29,4 +29,7 @@ public interface RegistroRepository extends MongoRepository<Registro, String>{
 	
 	@RestResource(path = "exists-cellPhone")
 	public Boolean existsByCellPhone(@Param("cellPhone") String cellPhone);
+	
+	@RestResource(path = "delete-username")
+	public Boolean deleteByUsername(@Param("username") String username);
 }

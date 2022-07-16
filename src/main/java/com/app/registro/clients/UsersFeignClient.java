@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.app.registro.models.Usuario;
-import com.app.registro.models.UsuarioPw;
+import com.app.registro.requests.Usuario;
+import com.app.registro.requests.UsuarioPw;
 
 @FeignClient(name = "app-usuarios")
 public interface UsersFeignClient {

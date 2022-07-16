@@ -1,18 +1,23 @@
-package com.app.registro.models;
+package com.app.registro.requests;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Document(collection = "roles")
+@Data
+@NoArgsConstructor
 public class Roles {
 
 	@Id
+	@JsonIgnore
 	private String id;
 
 	private String name;
-
-	public Roles() {
-	}
 
 	public Roles(String id, String name) {
 		super();
@@ -20,23 +25,4 @@ public class Roles {
 		this.name = name;
 	}
 
-	public Roles(String name) {
-		this.name = name;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 }

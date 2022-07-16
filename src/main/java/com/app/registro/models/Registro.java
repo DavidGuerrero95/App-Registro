@@ -10,10 +10,18 @@ import javax.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Document(collection = "registro")
+@Data
+@NoArgsConstructor
 public class Registro {
 
 	@Id
+	@JsonIgnore
 	private String id;
 
 	@NotBlank(message = "Username cannot be null")
@@ -44,82 +52,4 @@ public class Registro {
 	private Long minutos;
 	private List<String> roles;
 
-	public Registro() {
-	}
-
-	public Registro(String username, String password, String cellPhone, String email, String codigo, Long minutos,
-			List<String> roles) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.cellPhone = cellPhone;
-		this.email = email;
-		this.codigo = codigo;
-		this.minutos = minutos;
-		this.roles = roles;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getCellPhone() {
-		return cellPhone;
-	}
-
-	public void setCellPhone(String cellPhone) {
-		this.cellPhone = cellPhone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
-
-	public Long getMinutos() {
-		return minutos;
-	}
-
-	public void setMinutos(Long minutos) {
-		this.minutos = minutos;
-	}
-
-	public List<String> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
-	}
 }
